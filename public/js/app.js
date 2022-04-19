@@ -1,5 +1,6 @@
 var app = angular.module('studentsApp', ['ngRoute']);
 
+// Configure page routes
 app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
@@ -37,29 +38,33 @@ app.controller('addCtrl', function ($scope, $http) {
     // add a student
     rnd_id = Math.floor(Math.random() * 1000) + 100; // random 3-digit student id > 100
 
-    var info = {
-      sid: rnd_id, // set up data object
-      first_name: $scope.first_name,
-      last_name: $scope.last_name,
-      midterm: $scope.midterm,
-      final: $scope.final,
-      major: $scope.major,
-    };
+    if (parseInt($scope.midterm) && parseInt($scope.final)) {
+      var info = {
+        sid: rnd_id, // set up data object
+        first_name: $scope.first_name,
+        last_name: $scope.last_name,
+        midterm: $scope.midterm,
+        final: $scope.final,
+        major: $scope.major,
+      };
 
-    url = '/addStudent';
+      url = '/addStudent';
 
-    $http
-      .post(url, info) // post the object data
-      .then(function (response) {
-        $scope.status = response.data; //print status of request
+      $http
+        .post(url, info) // post the object data
+        .then(function (response) {
+          $scope.status = response.data; //print status of request
 
-        // clear textboxes
-        $scope.first_name = '';
-        $scope.last_name = '';
-        $scope.midterm = '';
-        $scope.final = '';
-        $scope.major = '';
-      });
+          // clear text boxes on submit
+          $scope.first_name = '';
+          $scope.last_name = '';
+          $scope.midterm = '';
+          $scope.final = '';
+          $scope.major = '';
+        });
+    } else {
+      alert('Invalid entry. Please double check all fields');
+    }
   };
 });
 
@@ -128,10 +133,10 @@ app.controller('editCtrl', function ($scope, $http) {
       $scope.student = $scope.students[$scope.studentIndex];
       alert('Student Deleted');
     });
-    if($scope.studentIndex < $scope.students.length - 1){
-        $scope.nextRecord();
+    if ($scope.studentIndex < $scope.students.length - 1) {
+      $scope.nextRecord();
     } else {
-        $scope.previousRecord();
+      $scope.previousRecord();
     }
   };
 });
