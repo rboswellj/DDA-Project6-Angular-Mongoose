@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head><title>Student Records</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script> 
+ <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-primary">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Student Records</a>
+    </div>
+    <div>
+       <ul class="nav navbar-nav">
+           <li class="active"><a href="#all_students">Home</a></li>
+           <li><a href="#add_student">Add a Student</a></li>
+           <li><a href="#edit_students">Edit student data</a></li>
+       </ul>
+    </div>
+</div>
+</nav>    <!-- end nav-bar -->
+
+<div class="container">
+   <div ng-app = "studentsApp">     <!-- module  -->
+
+       <div id="main">
+            <div ng-view></div> <!-- partial pages substituted here -->
+       </div>
+
+   </div>   <!-- end studentsApp -->
+
+
+   <div class="panel-footer">
+      <p>Footer items here: &nbsp; &copy; Robert Johnson</p>
+   </div> 
+
+</div>   <!-- end class= 'container' -->
+
+
+<script src='/js/app.js'></script>   <!-- our app.js code  -->
+
+</body></html>

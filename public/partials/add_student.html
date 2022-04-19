@@ -1,0 +1,28 @@
+           
+            <h2>Add a Student Record</h2>
+            
+           <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" ng-model="first_name">
+           </div>
+           <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" ng-model="last_name">
+           </div>
+           <div class="form-group">
+                <label for="midterm">Midterm:</label>
+                <input type="text" class="form-control" id="midterm" ng-model="midterm">
+           </div>
+           <div class="form-group">
+                <label for="final">Final:</label>
+                <input type="text" class="form-control" id="final" ng-model="final">
+           </div>
+           <div class="form-group">
+                <label for="major">Major:</label>
+                <input type="text" class="form-control" id="major" ng-model="major">
+           </div>
+           <button type="button" class="btn btn-primary" ng-click="addRecord()">Add Auto</button>
+           
+        <br><br>
+		{{status}} <!-- place to print status or request -->
+		<br><br>
